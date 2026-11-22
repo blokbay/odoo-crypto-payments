@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0). -->
+<odoo>
+    <record id="payment_provider_form" model="ir.ui.view">
+        <field name="name">Blokbay Provider Form</field>
+        <field name="model">payment.provider</field>
+        <field name="inherit_id" ref="payment.payment_provider_form"/>
+        <field name="arch" type="xml">
+            <group name="provider_credentials" position="inside">
+                <group invisible="code != 'blokbay'" name="blokbay_credentials">
+                    <field name="blokbay_public_key" string="Public Key" placeholder="pk_live_..."
+                           required="code == 'blokbay' and state != 'disabled'"/>
+                    <field name="blokbay_secret_key" string="Secret Key" placeholder="sk_live_..." password="True"
+                           required="code == 'blokbay' and state != 'disabled'"/>
+                    <field name="blokbay_webhook_secret" string="Webhook Signing Secret" placeholder="whsec_..." password="True"
+                           required="code == 'blokbay' and state != 'disabled'"/>
+                    <field name="blokbay_webhook_url" string="Webhook URL" readonly="1" widget="CopyClipboardChar"/>
+                    <field name="blokbay_api_url" groups="base.group_no_one"/>
+                </group>
+                <div invisible="code != 'blokbay'" class="text-muted" colspan="2">
+                    Copy the keys from your Blokbay dashboard (Payments from your site) and set the webhook URL above there.
+                    Payments are in USD. No custody: funds go from the buyer's wallet to yours in the same transaction.
+                    Blokbay keeps 1% of the amount paid, with no fixed costs.
+                </div>
+            </group>
+        </field>
+    </record>
+</odoo>

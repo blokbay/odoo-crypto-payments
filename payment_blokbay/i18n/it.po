@@ -1,0 +1,276 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-22 04:50+0000\n"
+"PO-Revision-Date: 2026-11-22 04:50+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_provider.py:0
+msgid "Could not establish the connection to the API."
+msgstr "Impossibile stabilire la connessione con l'API."
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_provider.py:0
+msgid "Invalid payment id."
+msgstr "Id del pagamento non valido."
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_provider.py:0
+msgid "The Blokbay API URL must start with https://"
+msgstr "L'URL dell'API Blokbay deve iniziare con https://"
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_provider.py:0
+msgid ""
+"The communication with the API failed. Blokbay gave us the following "
+"information: %s"
+msgstr ""
+"La comunicazione con l'API non è riuscita. Blokbay ha dato queste "
+"informazioni: %s"
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_provider.py:0
+msgid "Validation is not supported."
+msgstr "La convalida non è supportata."
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_transaction.py:0
+msgid "No transaction found matching reference %s."
+msgstr "Nessuna transazione trovata con il riferimento %s."
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_transaction.py:0
+msgid "Only payments in USD are supported."
+msgstr "Sono supportati solo pagamenti in USD."
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_transaction.py:0
+msgid "Order %s"
+msgstr "Ordine %s"
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_transaction.py:0
+msgid "Received data with missing reference."
+msgstr "Ricevuti dati senza riferimento."
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_transaction.py:0
+msgid "The amount paid does not match the transaction amount."
+msgstr "L'importo pagato non corrisponde all'importo della transazione."
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_transaction.py:0
+msgid "The crypto payment expired."
+msgstr "Il pagamento in crypto è scaduto."
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_transaction.py:0
+msgid "The customer left the crypto payment page."
+msgstr "Il cliente ha lasciato la pagina di pagamento in crypto."
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_transaction.py:0
+msgid "The minimum amount is 1.00 USD."
+msgstr "L'importo minimo è 1,00 USD."
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_transaction.py:0
+msgid "The payment does not match the transaction."
+msgstr "Il pagamento non corrisponde alla transazione."
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_transaction.py:0
+msgid "The transaction has no Blokbay payment."
+msgstr "La transazione non ha un pagamento Blokbay."
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_transaction.py:0
+msgid "Unknown payment status: %s"
+msgstr "Stato del pagamento sconosciuto: %s"
+
+#. module: payment_blokbay
+#: model:ir.model,name:payment_blokbay.model_payment_provider
+msgid "Payment Provider"
+msgstr "Fornitore di pagamento"
+
+#. module: payment_blokbay
+#: model:ir.model,name:payment_blokbay.model_payment_transaction
+msgid "Payment Transaction"
+msgstr "Transazione di pagamento"
+
+#. module: payment_blokbay
+#: model:ir.model.fields,field_description:payment_blokbay.field_payment_provider__blokbay_api_url
+msgid "Blokbay API URL"
+msgstr "URL dell'API Blokbay"
+
+#. module: payment_blokbay
+#: model:ir.model.fields,field_description:payment_blokbay.field_payment_provider__blokbay_public_key
+msgid "Blokbay Public Key"
+msgstr "Chiave pubblica Blokbay"
+
+#. module: payment_blokbay
+#: model:ir.model.fields,field_description:payment_blokbay.field_payment_provider__blokbay_secret_key
+msgid "Blokbay Secret Key"
+msgstr "Chiave segreta Blokbay"
+
+#. module: payment_blokbay
+#: model:ir.model.fields,field_description:payment_blokbay.field_payment_provider__blokbay_webhook_secret
+msgid "Blokbay Webhook Signing Secret"
+msgstr "Segreto di firma del webhook Blokbay"
+
+#. module: payment_blokbay
+#: model:ir.model.fields,field_description:payment_blokbay.field_payment_provider__blokbay_webhook_url
+#: model_terms:ir.ui.view,arch_db:payment_blokbay.payment_provider_form
+msgid "Webhook URL"
+msgstr "URL del webhook"
+
+#. module: payment_blokbay
+#: model:ir.model.fields,field_description:payment_blokbay.field_payment_provider__code
+msgid "Code"
+msgstr "Codice"
+
+#. module: payment_blokbay
+#: model:ir.model.fields,field_description:payment_blokbay.field_payment_transaction__blokbay_coin
+msgid "Coin"
+msgstr "Moneta"
+
+#. module: payment_blokbay
+#: model:ir.model.fields,field_description:payment_blokbay.field_payment_transaction__blokbay_network
+msgid "Network"
+msgstr "Rete"
+
+#. module: payment_blokbay
+#: model:ir.model.fields,field_description:payment_blokbay.field_payment_transaction__blokbay_tx_hash
+msgid "Blockchain Transaction"
+msgstr "Transazione sulla blockchain"
+
+#. module: payment_blokbay
+#: model:ir.model.fields,help:payment_blokbay.field_payment_provider__blokbay_api_url
+msgid "Leave the default value. Change it only for a local test server."
+msgstr ""
+"Lascia il valore predefinito. Cambialo solo per un server di prova locale."
+
+#. module: payment_blokbay
+#: model:ir.model.fields,help:payment_blokbay.field_payment_provider__blokbay_public_key
+msgid ""
+"pk_live_... from Blokbay > Payments from your site. Webhooks of other "
+"accounts are refused."
+msgstr ""
+"pk_live_... da Blokbay > Pagamenti dal tuo sito. I webhook di altri account "
+"vengono rifiutati."
+
+#. module: payment_blokbay
+#: model:ir.model.fields,help:payment_blokbay.field_payment_provider__blokbay_secret_key
+msgid "sk_live_... shown once in your Blokbay dashboard."
+msgstr "sk_live_... mostrata una sola volta nel pannello Blokbay."
+
+#. module: payment_blokbay
+#: model:ir.model.fields,help:payment_blokbay.field_payment_provider__blokbay_webhook_secret
+msgid "whsec_... from Blokbay > Payments from your site > Webhook."
+msgstr "whsec_... da Blokbay > Pagamenti dal tuo sito > Webhook."
+
+#. module: payment_blokbay
+#: model:ir.model.fields,help:payment_blokbay.field_payment_provider__code
+msgid "The technical code of this payment provider."
+msgstr "Il codice tecnico di questo fornitore di pagamento."
+
+#. module: payment_blokbay
+#: model:ir.model.fields.selection,name:payment_blokbay.selection__payment_provider__code__blokbay
+#: model:payment.provider,name:payment_blokbay.payment_provider_blokbay
+msgid "Blokbay"
+msgstr "Blokbay"
+
+#. module: payment_blokbay
+#: model:payment.method,name:payment_blokbay.payment_method_blokbay_crypto
+msgid "Crypto (BTC, USDC, USDT, ETH)"
+msgstr "Crypto (BTC, USDC, USDT, ETH)"
+
+#. module: payment_blokbay
+#: model_terms:ir.ui.view,arch_db:payment_blokbay.payment_provider_form
+msgid ""
+"Copy the keys from your Blokbay dashboard (Payments from your site) and set the webhook URL above there.\n"
+"                    Payments are in USD. No custody: funds go from the buyer's wallet to yours in the same transaction.\n"
+"                    Blokbay keeps 1% of the amount paid, with no fixed costs."
+msgstr ""
+"Copia le chiavi dal pannello Blokbay (Pagamenti dal tuo sito) e imposta lì l'URL del webhook qui sopra.\n"
+"                    I pagamenti sono in USD. Nessuna custodia: i fondi vanno dal wallet del compratore al tuo nella stessa transazione.\n"
+"                    Blokbay trattiene l'1% dell'importo pagato, senza costi fissi."
+
+#. module: payment_blokbay
+#: model_terms:ir.ui.view,arch_db:payment_blokbay.payment_provider_form
+msgid "Public Key"
+msgstr "Chiave pubblica"
+
+#. module: payment_blokbay
+#: model_terms:ir.ui.view,arch_db:payment_blokbay.payment_provider_form
+msgid "Secret Key"
+msgstr "Chiave segreta"
+
+#. module: payment_blokbay
+#: model_terms:ir.ui.view,arch_db:payment_blokbay.payment_provider_form
+msgid "Webhook Signing Secret"
+msgstr "Segreto di firma del webhook"
+
+#. module: payment_blokbay
+#: model_terms:ir.ui.view,arch_db:payment_blokbay.payment_provider_form
+msgid "pk_live_..."
+msgstr "pk_live_..."
+
+#. module: payment_blokbay
+#: model_terms:ir.ui.view,arch_db:payment_blokbay.payment_provider_form
+msgid "sk_live_..."
+msgstr "sk_live_..."
+
+#. module: payment_blokbay
+#: model_terms:ir.ui.view,arch_db:payment_blokbay.payment_provider_form
+msgid "whsec_..."
+msgstr "whsec_..."
+
+#. module: payment_blokbay
+#: model_terms:payment.provider,auth_msg:payment_blokbay.payment_provider_blokbay
+msgid "Your payment has been authorized."
+msgstr "Il pagamento è stato autorizzato."
+
+#. module: payment_blokbay
+#: model_terms:payment.provider,cancel_msg:payment_blokbay.payment_provider_blokbay
+msgid "Your payment has been cancelled."
+msgstr "Il pagamento è stato annullato."
+
+#. module: payment_blokbay
+#: model_terms:payment.provider,done_msg:payment_blokbay.payment_provider_blokbay
+msgid "Your payment has been successfully processed."
+msgstr "Il pagamento è stato elaborato correttamente."
+
+#. module: payment_blokbay
+#: model_terms:payment.provider,pending_msg:payment_blokbay.payment_provider_blokbay
+msgid ""
+"Your crypto payment is being confirmed on the blockchain. Your order will be"
+" confirmed automatically."
+msgstr ""
+"Il tuo pagamento in crypto è in conferma sulla blockchain. L'ordine sarà "
+"confermato automaticamente."

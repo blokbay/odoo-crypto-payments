@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0). -->
+<odoo noupdate="1">
+    <record id="payment_method_blokbay_crypto" model="payment.method">
+        <field name="name">Crypto (BTC, USDC, USDT, ETH)</field>
+        <field name="code">blokbay_crypto</field>
+        <field name="sequence">1000</field>
+        <field name="image" type="base64" file="payment_blokbay/static/src/img/crypto.png"/>
+        <field name="support_tokenization">False</field>
+        <field name="support_express_checkout">False</field>
+        <field name="supported_currency_ids" eval="[Command.set([ref('base.USD')])]"/>
+    </record>
+</odoo>

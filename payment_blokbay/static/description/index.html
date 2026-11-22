@@ -1,0 +1,41 @@
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <h2 class="oe_slogan">Blokbay Crypto Payments</h2>
+    <h3 class="oe_slogan">Accept BTC, USDC, USDT and ETH in your Odoo eCommerce and on invoices</h3>
+    <div class="oe_span12">
+      <img class="oe_demo oe_picture oe_screenshot" src="banner.png" alt="Blokbay Crypto Payments">
+    </div>
+  </div>
+</section>
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <div class="oe_span12">
+      <h3>No custody: funds never pass through us</h3>
+      <p>The buyer pays from their wallet on a secure Blokbay page. Stablecoins and ETH are split by a public smart contract in the same
+      transaction: you receive 99% straight in your wallet, Blokbay keeps 1% of the amount paid. No deposit that can be stolen, no frozen
+      funds, no waiting for a payout. Bitcoin is paid in two transfers to exact amounts.</p>
+      <h3>How it works</h3>
+      <ul>
+        <li>The buyer chooses <b>Crypto (BTC, USDC, USDT, ETH)</b> at checkout and is redirected to the Blokbay payment page.</li>
+        <li>When the payment is confirmed on the blockchain the transaction is <b>done</b> and the order is confirmed. The network, the coin
+        and the blockchain transaction are saved on the payment transaction.</li>
+        <li>A signed webhook updates the transaction even if the buyer closes the page; the return page checks the payment with the API.</li>
+        <li>Payments that expire are cancelled. A payment confirmed after the expiry is still recorded, because the funds already reached you.</li>
+      </ul>
+      <h3>Setup in 3 minutes</h3>
+      <ol>
+        <li>Open a free Blokbay account at <a href="https://blokbay.com" target="_blank" rel="noopener">blokbay.com</a> and add your wallet.</li>
+        <li>In <b>Payments from your site</b> copy the public key, the secret key and the webhook signing secret.</li>
+        <li>In Odoo open <b>Invoicing / Website &gt; Configuration &gt; Payment Providers &gt; Blokbay</b>, paste the keys, copy the
+        webhook URL into Blokbay and set the provider to Enabled.</li>
+      </ol>
+      <h3>Good to know</h3>
+      <ul>
+        <li>Currency: USD. Minimum amount: 1.00 USD (Bitcoin from 100 USD).</li>
+        <li>Refunds are not processed by the module: you send them from your wallet.</li>
+        <li>You stay responsible for your shop and for your obligations to your customers.</li>
+        <li>Odoo 17 and 18, Community and Enterprise. License LGPL-3. Support: mail@blokbay.com</li>
+      </ul>
+    </div>
+  </div>
+</section>

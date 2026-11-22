@@ -1,0 +1,268 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* payment_blokbay
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-22 04:50+0000\n"
+"PO-Revision-Date: 2026-11-22 04:50+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: payment_blokbay
+#: model:ir.model.fields,field_description:payment_blokbay.field_payment_transaction__blokbay_tx_hash
+msgid "Blockchain Transaction"
+msgstr ""
+
+#. module: payment_blokbay
+#: model:ir.model.fields.selection,name:payment_blokbay.selection__payment_provider__code__blokbay
+#: model:payment.provider,name:payment_blokbay.payment_provider_blokbay
+msgid "Blokbay"
+msgstr ""
+
+#. module: payment_blokbay
+#: model:ir.model.fields,field_description:payment_blokbay.field_payment_provider__blokbay_api_url
+msgid "Blokbay API URL"
+msgstr ""
+
+#. module: payment_blokbay
+#: model:ir.model.fields,field_description:payment_blokbay.field_payment_provider__blokbay_public_key
+msgid "Blokbay Public Key"
+msgstr ""
+
+#. module: payment_blokbay
+#: model:ir.model.fields,field_description:payment_blokbay.field_payment_provider__blokbay_secret_key
+msgid "Blokbay Secret Key"
+msgstr ""
+
+#. module: payment_blokbay
+#: model:ir.model.fields,field_description:payment_blokbay.field_payment_provider__blokbay_webhook_secret
+msgid "Blokbay Webhook Signing Secret"
+msgstr ""
+
+#. module: payment_blokbay
+#: model:ir.model.fields,field_description:payment_blokbay.field_payment_provider__code
+msgid "Code"
+msgstr ""
+
+#. module: payment_blokbay
+#: model:ir.model.fields,field_description:payment_blokbay.field_payment_transaction__blokbay_coin
+msgid "Coin"
+msgstr ""
+
+#. module: payment_blokbay
+#: model_terms:ir.ui.view,arch_db:payment_blokbay.payment_provider_form
+msgid ""
+"Copy the keys from your Blokbay dashboard (Payments from your site) and set the webhook URL above there.\n"
+"                    Payments are in USD. No custody: funds go from the buyer's wallet to yours in the same transaction.\n"
+"                    Blokbay keeps 1% of the amount paid, with no fixed costs."
+msgstr ""
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_provider.py:0
+msgid "Could not establish the connection to the API."
+msgstr ""
+
+#. module: payment_blokbay
+#: model:payment.method,name:payment_blokbay.payment_method_blokbay_crypto
+msgid "Crypto (BTC, USDC, USDT, ETH)"
+msgstr ""
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_provider.py:0
+msgid "Invalid payment id."
+msgstr ""
+
+#. module: payment_blokbay
+#: model:ir.model.fields,help:payment_blokbay.field_payment_provider__blokbay_api_url
+msgid "Leave the default value. Change it only for a local test server."
+msgstr ""
+
+#. module: payment_blokbay
+#: model:ir.model.fields,field_description:payment_blokbay.field_payment_transaction__blokbay_network
+msgid "Network"
+msgstr ""
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_transaction.py:0
+msgid "No transaction found matching reference %s."
+msgstr ""
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_transaction.py:0
+msgid "Only payments in USD are supported."
+msgstr ""
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_transaction.py:0
+msgid "Order %s"
+msgstr ""
+
+#. module: payment_blokbay
+#: model:ir.model,name:payment_blokbay.model_payment_provider
+msgid "Payment Provider"
+msgstr ""
+
+#. module: payment_blokbay
+#: model:ir.model,name:payment_blokbay.model_payment_transaction
+msgid "Payment Transaction"
+msgstr ""
+
+#. module: payment_blokbay
+#: model_terms:ir.ui.view,arch_db:payment_blokbay.payment_provider_form
+msgid "Public Key"
+msgstr ""
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_transaction.py:0
+msgid "Received data with missing reference."
+msgstr ""
+
+#. module: payment_blokbay
+#: model_terms:ir.ui.view,arch_db:payment_blokbay.payment_provider_form
+msgid "Secret Key"
+msgstr ""
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_provider.py:0
+msgid "The Blokbay API URL must start with https://"
+msgstr ""
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_transaction.py:0
+msgid "The amount paid does not match the transaction amount."
+msgstr ""
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_provider.py:0
+msgid ""
+"The communication with the API failed. Blokbay gave us the following "
+"information: %s"
+msgstr ""
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_transaction.py:0
+msgid "The crypto payment expired."
+msgstr ""
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_transaction.py:0
+msgid "The customer left the crypto payment page."
+msgstr ""
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_transaction.py:0
+msgid "The minimum amount is 1.00 USD."
+msgstr ""
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_transaction.py:0
+msgid "The payment does not match the transaction."
+msgstr ""
+
+#. module: payment_blokbay
+#: model:ir.model.fields,help:payment_blokbay.field_payment_provider__code
+msgid "The technical code of this payment provider."
+msgstr ""
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_transaction.py:0
+msgid "The transaction has no Blokbay payment."
+msgstr ""
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_transaction.py:0
+msgid "Unknown payment status: %s"
+msgstr ""
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_provider.py:0
+msgid "Validation is not supported."
+msgstr ""
+
+#. module: payment_blokbay
+#: model_terms:ir.ui.view,arch_db:payment_blokbay.payment_provider_form
+msgid "Webhook Signing Secret"
+msgstr ""
+
+#. module: payment_blokbay
+#: model:ir.model.fields,field_description:payment_blokbay.field_payment_provider__blokbay_webhook_url
+#: model_terms:ir.ui.view,arch_db:payment_blokbay.payment_provider_form
+msgid "Webhook URL"
+msgstr ""
+
+#. module: payment_blokbay
+#: model_terms:payment.provider,pending_msg:payment_blokbay.payment_provider_blokbay
+msgid ""
+"Your crypto payment is being confirmed on the blockchain. Your order will be"
+" confirmed automatically."
+msgstr ""
+
+#. module: payment_blokbay
+#: model_terms:payment.provider,auth_msg:payment_blokbay.payment_provider_blokbay
+msgid "Your payment has been authorized."
+msgstr ""
+
+#. module: payment_blokbay
+#: model_terms:payment.provider,cancel_msg:payment_blokbay.payment_provider_blokbay
+msgid "Your payment has been cancelled."
+msgstr ""
+
+#. module: payment_blokbay
+#: model_terms:payment.provider,done_msg:payment_blokbay.payment_provider_blokbay
+msgid "Your payment has been successfully processed."
+msgstr ""
+
+#. module: payment_blokbay
+#: model_terms:ir.ui.view,arch_db:payment_blokbay.payment_provider_form
+msgid "pk_live_..."
+msgstr ""
+
+#. module: payment_blokbay
+#: model:ir.model.fields,help:payment_blokbay.field_payment_provider__blokbay_public_key
+msgid ""
+"pk_live_... from Blokbay > Payments from your site. Webhooks of other "
+"accounts are refused."
+msgstr ""
+
+#. module: payment_blokbay
+#: model_terms:ir.ui.view,arch_db:payment_blokbay.payment_provider_form
+msgid "sk_live_..."
+msgstr ""
+
+#. module: payment_blokbay
+#: model:ir.model.fields,help:payment_blokbay.field_payment_provider__blokbay_secret_key
+msgid "sk_live_... shown once in your Blokbay dashboard."
+msgstr ""
+
+#. module: payment_blokbay
+#: model_terms:ir.ui.view,arch_db:payment_blokbay.payment_provider_form
+msgid "whsec_..."
+msgstr ""
+
+#. module: payment_blokbay
+#: model:ir.model.fields,help:payment_blokbay.field_payment_provider__blokbay_webhook_secret
+msgid "whsec_... from Blokbay > Payments from your site > Webhook."
+msgstr ""
