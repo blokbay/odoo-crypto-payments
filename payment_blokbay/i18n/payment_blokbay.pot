@@ -60,7 +60,8 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:payment_blokbay.payment_provider_form
 msgid ""
 "Copy the keys from your Blokbay dashboard (Payments from your site) and set the webhook URL above there.\n"
-"                    Payments are in USD. No custody: funds go from the buyer's wallet to yours in the same transaction.\n"
+"                    Currencies: USD, EUR, GBP, CHF, JPY, CAD, AUD, SGD, HKD, AED; the buyer pays in crypto at the current exchange rate.\n"
+"                    No custody: funds go from the buyer's wallet to yours in the same transaction.\n"
 "                    Blokbay keeps 1% of the amount paid, with no fixed costs."
 msgstr ""
 
@@ -100,7 +101,7 @@ msgstr ""
 #. module: payment_blokbay
 #. odoo-python
 #: code:addons/payment_blokbay/models/payment_transaction.py:0
-msgid "Only payments in USD are supported."
+msgid "Payments in %s are not supported."
 msgstr ""
 
 #. module: payment_blokbay
@@ -265,4 +266,17 @@ msgstr ""
 #. module: payment_blokbay
 #: model:ir.model.fields,help:payment_blokbay.field_payment_provider__blokbay_webhook_secret
 msgid "whsec_... from Blokbay > Payments from your site > Webhook."
+msgstr ""
+
+#. module: payment_blokbay
+#. odoo-python
+#: code:addons/payment_blokbay/models/payment_provider.py:0
+msgid ""
+"Blokbay accepts prices in %(accepted)s. The currency of this company is %(currency)s: the crypto payment "
+"method stays hidden for payments in that currency."
+msgstr ""
+
+#. module: payment_blokbay
+#: model:ir.model.fields,field_description:payment_blokbay.field_payment_provider__blokbay_currency_warning
+msgid "Blokbay Currency Notice"
 msgstr ""

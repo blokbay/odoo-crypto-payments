@@ -1,7 +1,7 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0).
 {
     'name': "Blokbay Crypto Payments",
-    'version': '18.0.1.0.0',
+    'version': '18.0.1.1.0',
     'category': 'Accounting/Payment Providers',
     'sequence': 350,
     'summary': "Accept BTC, USDC, USDT and ETH. No custody: funds go straight to your wallet. 1% per payment.",
@@ -15,6 +15,7 @@
         'views/payment_provider_views.xml',
         'views/payment_transaction_views.xml',
         'data/payment_method_data.xml',
+        'data/payment_method_currencies.xml',
         'data/payment_provider_data.xml',
     ],
     'images': ['static/description/banner.png'],

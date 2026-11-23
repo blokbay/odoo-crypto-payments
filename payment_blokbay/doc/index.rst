@@ -25,7 +25,8 @@ How it works
 Notes
 =====
 
-* Currency: USD. Minimum 1.00 USD (Bitcoin from 100 USD).
+* Currencies: USD, EUR, GBP, CHF, JPY, CAD, AUD, SGD, HKD, AED; the buyer pays in crypto at the current exchange rate.
+  Minimum: the equivalent of 1.00 USD (Bitcoin from the equivalent of 100 USD).
 * Refunds are sent by you from your wallet; the module does not process them.
 * You stay responsible for your shop and for your obligations to your customers.
 * Support: mail@blokbay.com

@@ -8,6 +8,6 @@
         <field name="image" type="base64" file="payment_blokbay/static/src/img/crypto.png"/>
         <field name="support_tokenization">False</field>
         <field name="support_express_checkout">False</field>
-        <field name="supported_currency_ids" eval="[Command.set([ref('base.USD')])]"/>
+        <field name="supported_currency_ids" eval="[Command.set([ref('base.USD'), ref('base.EUR'), ref('base.GBP'), ref('base.CHF'), ref('base.JPY'), ref('base.CAD'), ref('base.AUD'), ref('base.SGD'), ref('base.HKD'), ref('base.AED')])]"/>
     </record>
 </odoo>
