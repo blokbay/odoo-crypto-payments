@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0). -->
+<!-- 1.1.0: currencies accepted by Blokbay, written at every install and update (payment_method_data.xml is noupdate). -->
+<odoo>
+    <function model="payment.method" name="write">
+        <value eval="[ref('payment_blokbay.payment_method_blokbay_crypto')]"/>
+        <value eval="{'supported_currency_ids': [Command.set([ref('base.USD'), ref('base.EUR'), ref('base.GBP'), ref('base.CHF'), ref('base.JPY'), ref('base.CAD'), ref('base.AUD'), ref('base.SGD'), ref('base.HKD'), ref('base.AED')])]}"/>
+    </function>
+</odoo>

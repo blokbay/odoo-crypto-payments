@@ -2,8 +2,11 @@
 
 DEFAULT_API_URL = 'https://blokbay.com'
 
-# The Blokbay gateway API works in USD (amount with 2 decimals, from 1.00).
-SUPPORTED_CURRENCIES = ['USD']
+# Currencies accepted by the Blokbay gateway API, with their decimals (JPY has none). The buyer pays in crypto at the current
+# exchange rate; amount and currency come back in the payment and in webhooks exactly as sent. Minimum: the equivalent of
+# 1.00 USD, checked by Blokbay at the exchange rate (checked here only for USD).
+CURRENCY_DECIMALS = {'USD': 2, 'EUR': 2, 'GBP': 2, 'CHF': 2, 'JPY': 0, 'CAD': 2, 'AUD': 2, 'SGD': 2, 'HKD': 2, 'AED': 2}
+SUPPORTED_CURRENCIES = list(CURRENCY_DECIMALS)
 MIN_AMOUNT = 1.0
 
 # Payment method activated with the provider.

@@ -24,16 +24,18 @@ class PaymentTransaction(models.Model):
         res = super()._get_specific_rendering_values(processing_values)
         if self.provider_code != 'blokbay':
             return res
-        if self.currency_id.name not in const.SUPPORTED_CURRENCIES:
-            raise ValidationError("Blokbay: " + _("Only payments in USD are supported."))
-        amount = float_round(self.amount, precision_digits=2)
-        if amount < const.MIN_AMOUNT:
+        currency = self.currency_id.name
+        if currency not in const.SUPPORTED_CURRENCIES:
+            raise ValidationError("Blokbay: " + _("Payments in %s are not supported.", currency))
+        digits = const.CURRENCY_DECIMALS[currency]
+        amount = float_round(self.amount, precision_digits=digits)
+        if currency == 'USD' and amount < const.MIN_AMOUNT:
             raise ValidationError("Blokbay: " + _("The minimum amount is 1.00 USD."))
         base_url = self.provider_id.get_base_url()
         ref_q = urls.url_encode({'ref': self.reference})
         payload = {
-            'amount': '%.2f' % amount,
-            'currency': 'USD',
+            'amount': '%.*f' % (digits, amount),
+            'currency': currency,
             'reference': self.reference[:100],
             'description': (_("Order %s", self.reference) + (' - ' + self.company_id.name if self.company_id.name else ''))[:200],
             'url_success': urls.url_join(base_url, '/payment/blokbay/return') + '?' + ref_q,
@@ -41,7 +43,7 @@ class PaymentTransaction(models.Model):
         }
         if self.partner_email:
             payload['customer_email'] = self.partner_email
-        payment = self.provider_id._blokbay_request('POST', '/api/v1/payments', payload, idempotency_key='odoo:' + self.reference)
+        payment = self.provider_id._blokbay_request('POST', '/api/v1/payments', payload, idempotency_key='odoo:' + self.reference + ('' if currency == 'USD' else ':' + currency))
         self.provider_reference = payment.get('id')
         return {'api_url': payment['url']}
 
@@ -76,7 +78,9 @@ class PaymentTransaction(models.Model):
         status = payment.get('status')
         if status == const.STATUS_PAID:
             amount = float(payment.get('amount') or 0)
-            if payment.get('currency') != 'USD' or float_compare(amount, self.amount, precision_digits=2) != 0:
+            currency = self.currency_id.name
+            digits = const.CURRENCY_DECIMALS.get(currency, 2)
+            if payment.get('currency') != currency or float_compare(amount, self.amount, precision_digits=digits) != 0:
                 _logger.warning("Blokbay: amount mismatch for %s: %s %s", self.reference, payment.get('amount'), payment.get('currency'))
                 self._set_error("Blokbay: " + _("The amount paid does not match the transaction amount."))
                 return

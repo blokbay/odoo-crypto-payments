@@ -46,9 +46,51 @@ class TestBlokbay(PaymentCommon):
         self.assertFalse(self.provider._blokbay_verify_signature(raw, sign(raw, ts=int(time.time()) - 1000)))
         self.assertFalse(self.provider._blokbay_verify_signature(raw, 'garbage'))
 
-    def test_usd_only_and_no_validation(self):
-        self.assertEqual(self.provider._get_supported_currencies().mapped('name'), ['USD'])
+    def test_currencies_and_no_validation(self):
+        names = set(self.provider._get_supported_currencies().mapped('name'))
+        self.assertTrue({'USD', 'EUR', 'JPY'} <= names or 'USD' in names)
+        self.assertTrue(names <= {'USD', 'EUR', 'GBP', 'CHF', 'JPY', 'CAD', 'AUD', 'SGD', 'HKD', 'AED'})
+        method_currencies = set(self.payment_method.with_context(active_test=False).supported_currency_ids.mapped('name'))
+        self.assertEqual(method_currencies, {'USD', 'EUR', 'GBP', 'CHF', 'JPY', 'CAD', 'AUD', 'SGD', 'HKD', 'AED'})
         self.assertEqual(self.provider._get_default_payment_method_codes(), {'blokbay_crypto'})
+
+    def _rendered(self, tx):
+        calls = []
+
+        def fake(method, path, payload=None, idempotency_key=None):
+            calls.append((method, path, payload, idempotency_key))
+            return {'id': 'gp_abcdef123456', 'url': 'https://blokbay.com/pay/gp_abcdef123456', 'status': 'pending'}
+        with patch.object(type(self.provider), '_blokbay_request', autospec=True, side_effect=lambda _self, *a, **k: fake(*a, **k)):
+            tx._get_specific_rendering_values({})
+        return calls[0]
+
+    def test_eur_and_jpy(self):
+        eur = self.env.ref('base.EUR'); eur.active = True
+        jpy = self.env.ref('base.JPY'); jpy.active = True
+        tx = self._create_transaction('redirect', reference='EUR1', currency_id=eur.id, amount=249.9)
+        _m, _p, payload, idem = self._rendered(tx)
+        self.assertEqual((payload['amount'], payload['currency'], idem), ('249.90', 'EUR', 'odoo:EUR1:EUR'))
+        tx_j = self._create_transaction('redirect', reference='JPY1', currency_id=jpy.id, amount=25000)
+        _m, _p, payload, idem = self._rendered(tx_j)
+        self.assertEqual((payload['amount'], payload['currency']), ('25000', 'JPY'))
+        # webhook in the same currency: paid; other currency or amount: error
+        tx.provider_reference = 'gp_abcdef123456'
+        base = {'id': 'gp_abcdef123456', 'reference': 'EUR1', 'amount': '249.90', 'currency': 'EUR', 'status': 'paid'}
+        self._process(tx, dict(base, currency='USD'))
+        self.assertEqual(tx.state, 'error')
+        tx2 = self._create_transaction('redirect', reference='EUR2', currency_id=eur.id, amount=249.9, provider_reference='gp_abcdef222222')
+        self._process(tx2, dict(base, id='gp_abcdef222222', reference='EUR2'))
+        self.assertEqual(tx2.state, 'done')
+        tx_j.provider_reference = 'gp_abcdef333333'
+        self._process(tx_j, {'id': 'gp_abcdef333333', 'reference': 'JPY1', 'amount': '25000', 'currency': 'JPY', 'status': 'paid'})
+        self.assertEqual(tx_j.state, 'done')
+
+    def test_unsupported_currency(self):
+        sek = self.env.ref('base.SEK'); sek.active = True
+        tx = self._create_transaction('redirect', reference='SEK1', currency_id=sek.id, amount=100)
+        with self.assertRaises(ValidationError):
+            tx._get_specific_rendering_values({})
+        self.assertNotIn('SEK', self.provider._get_supported_currencies().mapped('name'))
 
     def test_rendering_creates_payment_with_idempotency(self):
         tx = self._tx()

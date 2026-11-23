@@ -40,6 +40,17 @@ class PaymentProvider(models.Model):
         help="Leave the default value. Change it only for a local test server.",
     )
     blokbay_webhook_url = fields.Char(string="Webhook URL", compute='_compute_blokbay_webhook_url')
+    blokbay_currency_warning = fields.Char(string="Blokbay Currency Notice", compute='_compute_blokbay_currency_warning')
+
+    @api.depends('code', 'company_id.currency_id')
+    def _compute_blokbay_currency_warning(self):
+        for provider in self:
+            cur = provider.company_id.currency_id.name if provider.company_id else False
+            provider.blokbay_currency_warning = _(
+                "Blokbay accepts prices in %(accepted)s. The currency of this company is %(currency)s: the crypto payment "
+                "method stays hidden for payments in that currency.",
+                accepted=', '.join(const.SUPPORTED_CURRENCIES), currency=cur,
+            ) if provider.code == 'blokbay' and cur and cur not in const.SUPPORTED_CURRENCIES else False
 
     @api.depends('code')
     def _compute_blokbay_webhook_url(self):
