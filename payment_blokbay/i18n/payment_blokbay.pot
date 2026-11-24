@@ -61,7 +61,7 @@ msgstr ""
 msgid ""
 "Copy the keys from your Blokbay dashboard (Payments from your site) and set the webhook URL above there.\n"
 "                    Currencies: USD, EUR, GBP, CHF, JPY, CAD, AUD, SGD, HKD, AED; the buyer pays in crypto at the current exchange rate.\n"
-"                    No custody: funds go from the buyer's wallet to yours in the same transaction.\n"
+"                    Coins: USDT, USDC, ETH, BTC and SOL, paid from a wallet or an exchange. No custody: funds go straight to your wallet.\n"
 "                    Blokbay keeps 1% of the amount paid, with no fixed costs."
 msgstr ""
 
@@ -73,7 +73,7 @@ msgstr ""
 
 #. module: payment_blokbay
 #: model:payment.method,name:payment_blokbay.payment_method_blokbay_crypto
-msgid "Crypto (BTC, USDC, USDT, ETH)"
+msgid "Crypto (USDT, USDC, ETH, BTC, SOL)"
 msgstr ""
 
 #. module: payment_blokbay
