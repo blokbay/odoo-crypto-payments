@@ -2,7 +2,7 @@
 
 Accept crypto payments in Odoo 17 and 18: Bitcoin (BTC), Tether (USDT), USD Coin (USDC) and Ether (ETH) on Ethereum, BNB Smart Chain (BSC), Polygon, Base and Arbitrum. Non-custodial: every payment goes straight to your own wallet. 1% per payment, no monthly fee. Download the latest release: [Releases](../../releases/latest).
 
-Non-custodial crypto payment provider for Odoo eCommerce: Bitcoin, USDC, USDT and ETH paid straight to the merchant wallet.
+Non-custodial crypto payment provider for Odoo eCommerce: USDT, USDC, ETH, BTC and SOL paid straight to the merchant wallet, from a wallet or an exchange.
 Module: payment_blokbay. Docs: https://blokbay.com/docs/api
 
 ## Supported networks
