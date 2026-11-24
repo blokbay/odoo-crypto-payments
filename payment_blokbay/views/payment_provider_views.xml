@@ -20,7 +20,7 @@
                 <div invisible="code != 'blokbay'" class="text-muted" colspan="2">
                     Copy the keys from your Blokbay dashboard (Payments from your site) and set the webhook URL above there.
                     Currencies: USD, EUR, GBP, CHF, JPY, CAD, AUD, SGD, HKD, AED; the buyer pays in crypto at the current exchange rate.
-                    No custody: funds go from the buyer's wallet to yours in the same transaction.
+                    Coins: USDT, USDC, ETH, BTC and SOL, paid from a wallet or an exchange. No custody: funds go straight to your wallet.
                     Blokbay keeps 1% of the amount paid, with no fixed costs.
                 </div>
                 <div invisible="code != 'blokbay' or not blokbay_currency_warning" class="alert alert-warning" role="alert" colspan="2">

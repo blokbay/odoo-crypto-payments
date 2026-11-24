@@ -1,7 +1,7 @@
 <section class="oe_container">
   <div class="oe_row oe_spaced">
     <h2 class="oe_slogan">Blokbay Crypto Payments</h2>
-    <h3 class="oe_slogan">Accept BTC, USDC, USDT and ETH in your Odoo eCommerce and on invoices</h3>
+    <h3 class="oe_slogan">Accept USDT, USDC, ETH, BTC and SOL in your Odoo eCommerce and on invoices</h3>
     <div class="oe_span12">
       <img class="oe_demo oe_picture oe_screenshot" src="banner.png" alt="Blokbay Crypto Payments">
     </div>
@@ -11,12 +11,20 @@
   <div class="oe_row oe_spaced">
     <div class="oe_span12">
       <h3>No custody: funds never pass through us</h3>
-      <p>The buyer pays from their wallet on a secure Blokbay page. Stablecoins and ETH are split by a public smart contract in the same
-      transaction: you receive 99% straight in your wallet, Blokbay keeps 1% of the amount paid. No deposit that can be stolen, no frozen
-      funds, no waiting for a payout. Bitcoin is paid in two transfers to exact amounts.</p>
+      <p>The buyer pays on a secure Blokbay page, from a connected wallet or by address and QR code from any wallet or exchange. Paid
+      from a wallet, each payment is split in the same transaction: you receive 99% straight in your wallet, Blokbay keeps 1% of the
+      amount paid. Paid by address, the buyer makes two transfers to exact amounts, one of them to your address (Bitcoin always works
+      this way); on Base, orders from 10 USD can also be paid with one transfer to a one-time payment address, a public contract
+      with no owner that forwards your share to your wallet. No deposit that can be stolen, no frozen funds, no waiting for a payout.</p>
+      <h3>Coins and networks</h3>
+      <ul>
+        <li>USDT and USDC on Ethereum, BNB Smart Chain, Arbitrum, Polygon and Solana; USDC on Base.</li>
+        <li>ETH on Ethereum, Base and Arbitrum; SOL on Solana; Bitcoin (BTC).</li>
+        <li>The buyer can change coin and network before paying; a confirmation page opens as soon as the payment arrives.</li>
+      </ul>
       <h3>How it works</h3>
       <ul>
-        <li>The buyer chooses <b>Crypto (BTC, USDC, USDT, ETH)</b> at checkout and is redirected to the Blokbay payment page.</li>
+        <li>The buyer chooses <b>Crypto (USDT, USDC, ETH, BTC, SOL)</b> at checkout and is redirected to the Blokbay payment page.</li>
         <li>When the payment is confirmed on the blockchain the transaction is <b>done</b> and the order is confirmed. The network, the coin
         and the blockchain transaction are saved on the payment transaction.</li>
         <li>A signed webhook updates the transaction even if the buyer closes the page; the return page checks the payment with the API.</li>
