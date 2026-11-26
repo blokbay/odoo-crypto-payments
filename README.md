@@ -21,3 +21,10 @@ On BNB Smart Chain the buyer pays with USDC or USDT (BEP-20) and the funds reach
 Verified source (Sourcify, chain 56): https://repo.sourcify.dev/56/0xd4b637cC81D5B5115Cd0204A9ba6B60474F05e31
 The network list is also in [`networks.json`](networks.json).
 
+
+## Crypto invoices in USDC and USDT (version 1.3.0)
+
+The module also adds a **Pay with Blokbay** button to posted customer invoices: it creates a stablecoin invoice with the same customer,
+lines and taxes, puts the USDC or USDT payment link on the invoice, in the PDF and in the invoice email, and registers the payment in
+Odoo when the signed `invoice.paid` webhook arrives (the invoice is read again from the Blokbay API first). Funds go straight to your
+wallet: Blokbay is non-custodial. More: https://blokbay.com/stablecoin-invoices/odoo
