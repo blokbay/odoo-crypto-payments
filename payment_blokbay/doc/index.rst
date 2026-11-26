@@ -26,6 +26,17 @@ How it works
 * The signed webhook updates the transaction even if the buyer closes the page. The return page checks the payment at once.
 * Network, coin and blockchain transaction are shown on the payment transaction.
 
+Pay customer invoices with Blokbay
+===================================
+
+* On a posted customer invoice, *Pay with Blokbay* creates a stablecoin invoice (USDC or USDT) with the same lines, taxes, total,
+  number and due date, and keeps the payment link on the invoice (tab *Blokbay*), in the invoice PDF and in the invoice email
+  sent from Odoo.
+* When the client pays, the signed webhook *invoice.paid* (same webhook URL and signing secret) registers the payment on the
+  invoice, in the journal of the provider or in the first bank journal of the company. The invoice is always read again from
+  the Blokbay API first. *invoice.voided* removes the link; a new one can then be created.
+* Requires invoices to be active on your Blokbay account. The eCommerce payment method works as before.
+
 Notes
 =====
 
@@ -38,5 +49,7 @@ Notes
 Changelog
 =========
 
+* 1.3.0: *Pay with Blokbay* on customer invoices (stablecoin invoice, link in the PDF and in the email, payment registered by
+  the webhook). The eCommerce payment method is unchanged.
 * 1.2.0: updated texts (USDT, USDC, ETH, BTC and SOL; payment from a wallet or an exchange). No change to how the module works.
 * 1.1.0: currencies USD, EUR, GBP, CHF, JPY, CAD, AUD, SGD, HKD and AED.

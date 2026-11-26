@@ -1,12 +1,15 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0).
 import json
 import logging
+import re
 
 from odoo import http
 from odoo.exceptions import ValidationError
 from odoo.http import request
 
 _logger = logging.getLogger(__name__)
+
+INVOICE_ID_RE = re.compile(r'^inv_[a-z0-9]{6,40}$')
 
 
 class BlokbayController(http.Controller):
@@ -57,6 +60,8 @@ class BlokbayController(http.Controller):
         if event['type'] == 'ping':
             return request.make_response('pong', headers=[('Content-Type', 'text/plain')])
         data = event.get('data') or {}
+        if event['type'].startswith('invoice.'):
+            return self._blokbay_invoice_event(provider, data)
         tx = request.env['payment.transaction'].sudo().search([
             ('provider_id', '=', provider.id), ('provider_reference', '=', data.get('id') or '-'),
         ], limit=1)
@@ -71,3 +76,22 @@ class BlokbayController(http.Controller):
             return request.make_response('retry', headers=[('Content-Type', 'text/plain')], status=503)
         msg = 'duplicate' if state_before == tx.state and tx.state in ('done', 'cancel') else tx.state
         return request.make_response(msg, headers=[('Content-Type', 'text/plain')])
+
+    def _blokbay_invoice_event(self, provider, data):
+        """ invoice.paid / invoice.voided / invoice.overdue for an invoice created with "Pay with Blokbay": the invoice is read again
+        from the API (never trusted from the webhook body) before the Odoo invoice changes. """
+        text = lambda msg, status=200: request.make_response(msg, headers=[('Content-Type', 'text/plain')], status=status)
+        inv_id = data.get('id') or ''
+        if not INVOICE_ID_RE.match(inv_id):
+            return text('unknown invoice')
+        move = request.env['account.move'].sudo().search([('blokbay_invoice_id', '=', inv_id), ('company_id', '=', provider.company_id.id)], limit=1)
+        if not move:
+            return text('unknown invoice')
+        try:
+            fresh = provider._blokbay_request('GET', f'/api/v1/invoices/{inv_id}')
+        except ValidationError:
+            _logger.exception("Blokbay: unable to read the invoice %s", inv_id)
+            return text('retry', 503)
+        if fresh.get('id') != inv_id:
+            return text('unknown invoice')
+        return text(move._blokbay_apply_invoice(provider, fresh))

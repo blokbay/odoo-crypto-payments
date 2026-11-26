@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0). -->
+<odoo>
+    <template id="report_invoice_document_blokbay" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@id='payment_term']" position="after">
+            <p t-if="o.blokbay_payment_url and o.blokbay_invoice_status == 'open'" name="blokbay_payment_link" class="mt-2">
+                Pay in USDC or USDT: <a t-att-href="o.blokbay_payment_url" t-esc="o.blokbay_payment_url"/>
+            </p>
+        </xpath>
+    </template>
+</odoo>

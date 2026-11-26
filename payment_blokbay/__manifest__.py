@@ -1,19 +1,21 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0).
 {
     'name': "Crypto Payments (USDT, USDC, ETH, BTC, SOL) - Blokbay",
-    'version': '18.0.1.2.0',
+    'version': '18.0.1.3.0',
     'category': 'Accounting/Payment Providers',
     'sequence': 350,
-    'summary': "Accept crypto payments in Odoo eCommerce: USDT, USDC, ETH, BTC and SOL, paid straight to your own wallet. 1% per payment.",
+    'summary': "Accept crypto payments in Odoo eCommerce and on customer invoices: USDT, USDC, ETH, BTC and SOL, paid straight to your own wallet. 1% per payment.",
     'description': " ",  # Non-empty string to avoid loading the README file; the Apps Store page is static/description/index.html.
     'author': "Blokbay",
     'website': "https://blokbay.com",
     'support': "mail@blokbay.com",
-    'depends': ['payment'],
+    'depends': ['payment', 'account'],
     'data': [
         'views/payment_blokbay_templates.xml',
         'views/payment_provider_views.xml',
         'views/payment_transaction_views.xml',
+        'views/account_move_views.xml',
+        'views/report_invoice.xml',
         'data/payment_method_data.xml',
         'data/payment_method_currencies.xml',
         'data/payment_provider_data.xml',
